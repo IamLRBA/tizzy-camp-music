@@ -1,46 +1,69 @@
-// Format date to readable string
+// Format date
 export const formatDate = (dateString) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
-// Format time duration (e.g., 125 -> "2:05")
+// Format currency
+export const formatCurrency = (amount) => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(amount);
+};
+
+// Truncate text
+export const truncateText = (text, maxLength = 100) => {
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength) + '...';
+};
+
+// Generate random ID
+export const generateId = () => {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+};
+
+// Capitalize first letter
+export const capitalize = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+// Format duration (seconds to MM:SS)
 export const formatDuration = (seconds) => {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 };
 
-// Truncate text with ellipsis
-export const truncateText = (text, maxLength) => {
-  if (text.length <= maxLength) return text;
-  return `${text.substring(0, maxLength)}...`;
+// Sanitize input
+export const sanitizeInput = (input) => {
+  const div = document.createElement('div');
+  div.textContent = input;
+  return div.innerHTML;
 };
 
-// Generate unique ID
-export const generateId = () => {
-  return Math.random().toString(36).substr(2, 9);
+// Debounce function
+export const debounce = (func, delay) => {
+  let timeoutId;
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
 };
 
-// Format price with currency
-export const formatPrice = (amount, currency = 'USD') => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency,
-    minimumFractionDigits: 2
-  }).format(amount);
+// Throttle function
+export const throttle = (func, limit) => {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
 };
 
-// Scroll to element with offset for fixed header
-export const scrollToElement = (id, offset = 80) => {
-  const element = document.getElementById(id);
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  }
+// Check if mobile device
+export const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 };

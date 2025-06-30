@@ -1,0 +1,71 @@
+.about-page {
+  padding-top: 70px;
+}
+
+.history-content {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.history-text {
+  flex: 1;
+}
+
+.history-text h3 {
+  margin: var(--spacing-md) 0 var(--spacing-sm);
+  color: var(--secondary-color);
+}
+
+.history-image {
+  flex: 1;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.history-image img {
+  width: 100%;
+  height: auto;
+}
+
+.team-section {
+  background-color: var(--light-gray);
+}
+
+.ceo-card-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.team-members-slider {
+  display: flex;
+  gap: var(--spacing-md);
+  overflow-x: auto;
+  padding: var(--spacing-md) 0;
+  scroll-snap-type: x mandatory;
+}
+
+.team-members-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.team-members-slider::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+.team-members-slider::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .history-content {
+    flex-direction: column;
+  }
+
+  .history-image {
+    margin-top: var(--spacing-lg);
+  }
+}

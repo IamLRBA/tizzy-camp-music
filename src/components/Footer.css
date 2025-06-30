@@ -1,0 +1,134 @@
+.footer {
+  position: relative;
+  background-color: var(--primary-color);
+  color: var(--white);
+  margin-top: var(--spacing-xl);
+}
+
+.wave-section {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.wave-section svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-content {
+  padding: var(--spacing-xl) 0;
+  position: relative;
+  z-index: var(--z-index-normal);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--secondary-color);
+}
+
+.footer-column p {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.footer-social a {
+  color: var(--white);
+  font-size: 1.2rem;
+  transition: var(--transition-fast);
+}
+
+.footer-social a:hover {
+  color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-links a {
+  color: var(--white);
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+  padding-left: var(--spacing-xs);
+}
+
+.footer-music-links {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.footer-music-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: var(--transition-fast);
+}
+
+.footer-music-links a:hover {
+  color: var(--secondary-color);
+}
+
+.footer-cta {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-cta h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-copyright {
+  padding: var(--spacing-md) 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--tertiary-color);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .wave-section {
+    top: -50px;
+    height: 50px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-column {
+    margin-bottom: var(--spacing-lg);
+  }
+}

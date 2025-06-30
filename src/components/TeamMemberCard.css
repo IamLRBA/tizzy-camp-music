@@ -1,0 +1,86 @@
+.team-member-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-medium);
+  cursor: pointer;
+  min-width: 250px;
+}
+
+.team-member-card.ceo {
+  max-width: 500px;
+  min-width: auto;
+  width: 100%;
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.team-member-card.expanded {
+  min-height: 300px;
+}
+
+.team-member-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.team-member-card.ceo .team-member-image {
+  height: 300px;
+}
+
+.team-member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-medium);
+}
+
+.team-member-card:hover .team-member-image img {
+  transform: scale(1.05);
+}
+
+.team-member-info {
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.team-member-info h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.team-member-role {
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.team-member-details {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.team-member-bio {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.team-member-social {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.team-member-social a {
+  color: var(--tertiary-color);
+  font-size: 1.2rem;
+  transition: var(--transition-fast);
+}
+
+.team-member-social a:hover {
+  color: var(--secondary-color);
+  transform: translateY(-3px);
+}
