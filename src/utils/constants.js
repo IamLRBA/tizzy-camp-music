@@ -91,3 +91,83 @@ export const BEATS = [
   },
   // Add more beats
 ];
+
+export const TEAM_MEMBERS = [
+  {
+    id: 1,
+    name: 'John Doe',
+    role: 'CEO',
+    image: 'ceo.jpg',
+    bio: 'Founder and visionary behind Tizzy Camp Music Label. With over 15 years in the music industry...',
+    social: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    }
+  },
+  {
+    id: 2,
+    name: 'Jane Smith',
+    role: 'A&R Director',
+    image: 'ar-director.jpg',
+    bio: 'Talent scout and artist development specialist with an ear for unique sounds...',
+    social: {
+      linkedin: '#',
+      twitter: '#'
+    }
+  },
+  {
+    id: 3,
+    name: 'Mike Johnson',
+    role: 'Studio Manager',
+    image: 'studio-manager.jpg',
+    bio: 'Audio engineer and studio operations expert ensuring top-quality recordings...',
+    social: {
+      linkedin: '#',
+      instagram: '#'
+    }
+  },
+  {
+    id: 4,
+    name: 'Sarah Williams',
+    role: 'Marketing Director',
+    image: 'marketing-director.jpg',
+    bio: 'Digital marketing specialist building artist brands and growing fanbases...',
+    social: {
+      linkedin: '#',
+      twitter: '#',
+      instagram: '#'
+    }
+  }
+];
+
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'Alex Turner',
+    role: 'Signed Artist',
+    text: 'Tizzy Camp has provided me with the platform and support to take my music to the next level. The team truly cares about their artists.',
+    image: 'testimonial1.jpg'
+  },
+  {
+    id: 2,
+    name: 'Maria Garcia',
+    role: 'Studio Client',
+    text: 'The G.O.E Records studio is my go-to for recording. Professional environment with top-notch equipment and engineers.',
+    image: 'testimonial2.jpg'
+  },
+  {
+    id: 3,
+    name: 'David Kim',
+    role: 'Producer',
+    text: 'Working with Tizzy Camp has been a game-changer. Their beat store is my first stop when looking for quality instrumentals.',
+    image: 'testimonial3.jpg'
+  },
+  {
+    id: 4,
+    name: 'Lisa Chen',
+    role: 'Industry Partner',
+    text: 'The most professional and artist-focused label I\'ve worked with. Their attention to detail is unmatched.',
+    image: 'testimonial4.jpg'
+  }
+];
