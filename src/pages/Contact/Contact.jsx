@@ -63,7 +63,7 @@ const Contact = () => {
                 <FaPhone />
               </div>
               <h3>Phone</h3>
-              <p>+256 XXX XXX XXX</p>
+              <p>+256 760 316 738</p>
             </div>
             <div className="contact-info-card slide-in-bottom delay-1">
               <div className="contact-info-icon">
@@ -77,7 +77,7 @@ const Contact = () => {
                 <FaWhatsapp />
               </div>
               <h3>WhatsApp</h3>
-              <p>+256 XXX XXX XXX</p>
+              <p>+256 760 316 738</p>
             </div>
           </div>
         </div>
