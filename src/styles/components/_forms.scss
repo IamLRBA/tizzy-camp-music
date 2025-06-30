@@ -1,0 +1,112 @@
+.form-group {
+  margin-bottom: 20px;
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: $dark-color;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba($text-muted, 0.3);
+    border-radius: $border-radius;
+    font-family: $font-primary;
+    font-size: 1rem;
+    @include transition(all);
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      @include box-shadow(0, 0, 0, 3px, rgba($primary-color, 0.1));
+    }
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+}
+
+.contact-form {
+  background: $light-color;
+  padding: 40px;
+  border-radius: $border-radius;
+  @include box-shadow();
+  
+  @include responsive(phone) {
+    padding: 30px 20px;
+  }
+  
+  .submit-button {
+    @extend .button;
+    @extend .button-primary;
+    @extend .button-large;
+    @extend .button-full;
+  }
+}
+
+.booking-form {
+  background: $light-color;
+  padding: 40px;
+  border-radius: $border-radius;
+  @include box-shadow();
+  
+  @include responsive(phone) {
+    padding: 30px 20px;
+  }
+  
+  .submit-button {
+    @extend .button;
+    @extend .button-primary;
+    @extend .button-large;
+    @extend .button-full;
+  }
+}
+
+.success-message {
+  background: $light-color;
+  padding: 40px;
+  border-radius: $border-radius;
+  text-align: center;
+  @include box-shadow();
+  
+  h3 {
+    color: $success-color;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    color: $text-muted;
+  }
+}
+
+.search-input {
+  position: relative;
+  
+  input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid rgba($text-muted, 0.3);
+    border-radius: $border-radius;
+    font-family: $font-primary;
+    font-size: 1rem;
+    @include transition(all);
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      @include box-shadow(0, 0, 0, 3px, rgba($primary-color, 0.1));
+    }
+  }
+  
+  svg {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+  }
+}
