@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaUsers, FaMusic, FaMicrophone, FaEnvelope, FaSearch, FaTimes, FaBars } from 'react-icons/fa';
+import { FaHome, FaUsers, FaMusic, FaMicrophone, FaHeadphones, FaEnvelope, FaSearch, FaTimes, FaBars } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -46,9 +46,9 @@ const Navbar = () => {
   const navLinks = [
     { path: '/', name: 'Home', icon: <FaHome /> },
     { path: '/about', name: 'About', icon: <FaUsers /> },
-    { path: '/artists', name: 'Artists', icon: <FaUsers /> },
+    { path: '/artists', name: 'Artists', icon: <FaMicrophone /> },
     { path: '/releases', name: 'Releases', icon: <FaMusic /> },
-    { path: '/studio', name: 'Studio', icon: <FaMicrophone /> },
+    { path: '/studio', name: 'Studio', icon: <FaHeadphones /> },
     { path: '/contact', name: 'Contact', icon: <FaEnvelope /> },
   ];
 
