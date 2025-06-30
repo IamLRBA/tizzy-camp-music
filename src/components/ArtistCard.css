@@ -1,0 +1,67 @@
+.artist-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-medium);
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+}
+
+.artist-image {
+  position: relative;
+  height: 200px;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+.artist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-medium);
+}
+
+.artist-card:hover .artist-image img {
+  transform: scale(1.05);
+}
+
+.artist-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-medium);
+}
+
+.artist-card:hover .artist-overlay {
+  opacity: 1;
+}
+
+.artist-icon {
+  font-size: 2rem;
+  color: var(--white);
+  transform: scale(0);
+  transition: var(--transition-medium);
+}
+
+.artist-card:hover .artist-icon {
+  transform: scale(1);
+}
+
+.artist-info h3 {
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.2rem;
+}
+
+.artist-info p {
+  color: var(--tertiary-color);
+}

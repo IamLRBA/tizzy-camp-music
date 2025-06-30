@@ -1,0 +1,35 @@
+.releases-page {
+  padding-top: 70px;
+}
+
+.releases-list-section {
+  background-color: var(--light-gray);
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--tertiary-color);
+}
+
+.releases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .releases-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .releases-grid {
+    grid-template-columns: 1fr;
+  }
+}

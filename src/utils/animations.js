@@ -1,32 +1,41 @@
-import { motion } from 'framer-motion';
-
-// Page transition variants
-export const pageVariants = {
-  initial: {
-    opacity: 0,
-    x: '-100vw',
-    scale: 0.8
-  },
-  in: {
-    opacity: 1,
-    x: 0,
-    scale: 1
-  },
-  out: {
-    opacity: 0,
-    x: '100vw',
-    scale: 1.2
-  }
+// Animation utilities
+export const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 }
 };
 
-export const pageTransition = {
-  type: 'tween',
-  ease: 'anticipate',
-  duration: 0.5
+export const slideUp = {
+  hidden: { y: 50, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+  exit: { y: 50, opacity: 0 }
 };
 
-// Staggered animation for children
-export const containerVariants = {
+export const slideDown = {
+  hidden: { y: -50, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+  exit: { y: -50, opacity: 0 }
+};
+
+export const slideLeft = {
+  hidden: { x: 50, opacity: 0 },
+  visible: { x: 0, opacity: 1 },
+  exit: { x: 50, opacity: 0 }
+};
+
+export const slideRight = {
+  hidden: { x: -50, opacity: 0 },
+  visible: { x: 0, opacity: 1 },
+  exit: { x: -50, opacity: 0 }
+};
+
+export const scaleUp = {
+  hidden: { scale: 0.9, opacity: 0 },
+  visible: { scale: 1, opacity: 1 },
+  exit: { scale: 0.9, opacity: 0 }
+};
+
+export const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -36,72 +45,24 @@ export const containerVariants = {
   }
 };
 
-export const childVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5
-    }
-  }
+export const transition = {
+  type: "spring",
+  damping: 20,
+  stiffness: 100
 };
 
-// Card hover animation
-export const cardHover = {
-  scale: 1.03,
-  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-  transition: {
-    duration: 0.3
-  }
+export const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.5
 };
 
-// Button tap animation
-export const buttonTap = {
+export const hoverEffect = {
+  scale: 1.05,
+  transition: { duration: 0.3 }
+};
+
+export const tapEffect = {
   scale: 0.95,
-  transition: {
-    duration: 0.1
-  }
-};
-
-// Fade in animation
-export const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  transition: { duration: 0.5 }
-};
-
-// Slide up animation
-export const slideUp = {
-  hidden: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
-  transition: { duration: 0.5 }
-};
-
-// Rotate animation
-export const rotate = {
-  rotate: 360,
-  transition: {
-    duration: 1,
-    repeat: Infinity,
-    ease: 'linear'
-  }
-};
-
-// Pulse animation
-export const pulse = {
-  scale: [1, 1.05, 1],
-  transition: {
-    duration: 1,
-    repeat: Infinity
-  }
-};
-
-// Bounce animation
-export const bounce = {
-  y: [0, -10, 0],
-  transition: {
-    duration: 1,
-    repeat: Infinity
-  }
+  transition: { duration: 0.1 }
 };
