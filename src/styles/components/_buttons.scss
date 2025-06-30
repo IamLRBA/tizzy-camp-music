@@ -1,0 +1,113 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: $border-radius;
+  font-family: $font-secondary;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  @include transition(all);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  
+  &-primary {
+    background: $gradient-primary;
+    color: $text-light;
+    
+    &:hover {
+      transform: translateY(-3px);
+      @include box-shadow(0, 10px, 20px, rgba(0, 0, 0, 0.2));
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  &-secondary {
+    background: transparent;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    
+    &:hover {
+      background: $primary-color;
+      color: $text-light;
+    }
+  }
+  
+  &-outline {
+    background: transparent;
+    color: $text-light;
+    border: 2px solid $text-light;
+    
+    &:hover {
+      background: $text-light;
+      color: $dark-color;
+    }
+  }
+  
+  &-small {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  &-large {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
+  
+  &-icon {
+    display: inline-flex;
+    align-items: center;
+    
+    svg {
+      margin-right: 8px;
+    }
+  }
+  
+  &-rounded {
+    border-radius: 50px;
+  }
+  
+  &-full {
+    width: 100%;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: $gradient-primary;
+  color: $text-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(all);
+  @include box-shadow(0, 5px, 15px, rgba(0, 0, 0, 0.2));
+  
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  svg {
+    font-size: 1.2rem;
+  }
+}

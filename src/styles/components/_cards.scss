@@ -1,0 +1,391 @@
+.card {
+  background: $light-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  @include box-shadow();
+  @include transition(all);
+  
+  &-image {
+    position: relative;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: auto;
+      @include transition(transform, 0.5s);
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($dark-color, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      @include transition(opacity);
+      
+      .play-button {
+        width: 60px;
+        height: 60px;
+        background: $gradient-primary;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-light;
+        border: none;
+        cursor: pointer;
+        transform: scale(0.8);
+        @include transition(all);
+        
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: currentColor;
+        }
+      }
+    }
+  }
+  
+  &-content {
+    padding: 20px;
+  }
+  
+  &:hover {
+    transform: translateY(-10px);
+    @include box-shadow(0, 15px, 30px, rgba(0, 0, 0, 0.15));
+    
+    .card-image {
+      img {
+        transform: scale(1.05);
+      }
+      
+      .overlay {
+        opacity: 1;
+        
+        .play-button {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+.artist-card {
+  @extend .card;
+  text-align: center;
+  
+  .artist-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius $border-radius 0 0;
+    
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      @include transition(transform);
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($primary-color, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      @include transition(opacity);
+      
+      span {
+        color: $text-light;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
+  
+  .artist-info {
+    padding: 20px;
+    
+    h3 {
+      margin-bottom: 5px;
+      color: $dark-color;
+    }
+    
+    p {
+      color: $text-muted;
+      font-size: 0.9rem;
+    }
+  }
+  
+  &:hover {
+    .artist-image {
+      .overlay {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.release-card {
+  @extend .card;
+  display: flex;
+  flex-direction: column;
+  
+  @include responsive(tablet) {
+    flex-direction: row;
+  }
+  
+  @include responsive(phone) {
+    flex-direction: column;
+  }
+  
+  .release-image {
+    flex: 1;
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .release-info {
+    flex: 1;
+    padding: 20px;
+    
+    h3 {
+      margin-bottom: 5px;
+    }
+    
+    .artist {
+      color: $primary-color;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .date {
+      color: $text-muted;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    
+    .tracklist {
+      margin-bottom: 20px;
+      
+      h4 {
+        margin-bottom: 10px;
+        color: $dark-color;
+      }
+      
+      ul {
+        li {
+          display: flex;
+          padding: 8px 0;
+          border-bottom: 1px solid rgba($text-muted, 0.1);
+          
+          .track-number {
+            width: 30px;
+            color: $text-muted;
+          }
+          
+          .track-title {
+            flex: 1;
+          }
+          
+          .track-duration {
+            width: 50px;
+            text-align: right;
+            color: $text-muted;
+          }
+        }
+      }
+    }
+    
+    .stream-links {
+      h4 {
+        margin-bottom: 10px;
+      }
+      
+      .platforms {
+        display: flex;
+        gap: 15px;
+        
+        a {
+          color: $text-muted;
+          font-size: 1.5rem;
+          @include transition(color);
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.testimonial-card {
+  background: $light-color;
+  border-radius: $border-radius;
+  padding: 30px;
+  @include box-shadow();
+  @include transition(all);
+  
+  &.active {
+    background: $gradient-primary;
+    color: $text-light;
+    
+    .testimonial-author {
+      .author-info {
+        h4, p {
+          color: $text-light;
+        }
+      }
+    }
+  }
+  
+  .testimonial-content {
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    
+    .author-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    .author-info {
+      h4 {
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+      
+      p {
+        color: $text-muted;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.team-member-card {
+  background: $light-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  @include box-shadow();
+  @include transition(all);
+  margin: 0 15px;
+  width: 280px;
+  flex-shrink: 0;
+  
+  &.ceo {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    
+    .member-image {
+      height: 400px;
+    }
+  }
+  
+  .member-image {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include transition(transform);
+    }
+  }
+  
+  .member-info {
+    padding: 20px;
+    text-align: center;
+    
+    h3 {
+      margin-bottom: 5px;
+    }
+    
+    .role {
+      color: $primary-color;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .bio {
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      
+      a {
+        color: $text-muted;
+        font-size: 1.2rem;
+        @include transition(color);
+        
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  
+  &:not(.ceo) {
+    cursor: pointer;
+    
+    .member-details {
+      max-height: 0;
+      overflow: hidden;
+      @include transition(max-height);
+    }
+    
+    &.expanded {
+      .member-details {
+        max-height: 500px;
+      }
+    }
+  }
+  
+  &:hover {
+    @include box-shadow(0, 15px, 30px, rgba(0, 0, 0, 0.15));
+    
+    .member-image {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

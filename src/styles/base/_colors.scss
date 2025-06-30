@@ -1,0 +1,31 @@
+// Primary Colors
+$primary-color: #6a11cb;
+$secondary-color: #2575fc;
+$accent-color: #ff4d4d;
+
+// Dark Colors
+$dark-color: #1a1a2e;
+$dark-shade: #16213e;
+$darker-shade: #0f1a2e;
+
+// Light Colors
+$light-color: #f8f9fa;
+$light-shade: #e9ecef;
+$lighter-shade: #f8f9fa;
+
+// Text Colors
+$text-color: #333;
+$text-light: #f8f9fa;
+$text-muted: #6c757d;
+$text-dark: #212529;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+$gradient-dark: linear-gradient(135deg, $dark-color 0%, $dark-shade 100%);
+$gradient-accent: linear-gradient(135deg, $accent-color 0%, darken($accent-color, 15%) 100%);
+
+// Additional Colors
+$success-color: #28a745;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+$info-color: #17a2b8;
