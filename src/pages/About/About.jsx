@@ -67,6 +67,19 @@ const About = () => {
         instagram: '#',
         linkedin: '#'
       }
+    },
+    {
+      id: 4,
+      name: 'Team Member 4',
+      role: 'Music Producer',
+      image: '/images/team/member4.jpg',
+      bio: 'Audio engineer and studio expert. Ensures G.O.E Records operates at the highest technical standards.',
+      social: {
+        facebook: '#',
+        twitter: '#',
+        instagram: '#',
+        linkedin: '#'
+      }
     }
   ];
 
@@ -97,7 +110,7 @@ const About = () => {
               </p>
             </div>
             <div className="history-image slide-in-right">
-              <img src="/images/about-image.jpg" alt="Tizzy Camp History" />
+              <img src="/images/about-image1.jpg" alt="Tizzy Camp History" />
             </div>
           </div>
         </div>

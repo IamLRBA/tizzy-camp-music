@@ -70,9 +70,23 @@ const Home = () => {
     },
     {
       id: 3,
-      name: 'Client 3',
+      name: 'Rebo Chapo',
       role: 'Artist',
       image: '/images/testimonials/client3.jpg',
+      text: 'Tizzy Camp helped me take my music to the next level. Highly recommend their services.'
+    },
+    {
+      id: 3,
+      name: 'Kim Swaqq',
+      role: 'Artist',
+      image: '/images/testimonials/client4.jpg',
+      text: 'Tizzy Camp helped me take my music to the next level. Highly recommend their services.'
+    },
+    {
+      id: 3,
+      name: 'Quex',
+      role: 'Artist',
+      image: '/images/testimonials/client5.jpg',
       text: 'Tizzy Camp helped me take my music to the next level. Highly recommend their services.'
     }
   ];
@@ -90,7 +104,7 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-image slide-in-right">
-          <img src="/images/hero-bg.jpg" alt="Tizzy Camp Collective" />
+          <img src="/images/hero-bg1.jpg" alt="Tizzy Camp Collective" />
         </div>
       </section>
 
@@ -143,7 +157,7 @@ const Home = () => {
       {/* Testimonials Section */}
       <section className="section testimonials-section">
         <div className="container">
-          <h2 className="section-title">What People Say</h2>
+          <h2 className="section-title">What Our Clients Say</h2>
           <div className="testimonials-slider">
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.id} testimonial={testimonial} />

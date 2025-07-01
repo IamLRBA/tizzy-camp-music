@@ -6,6 +6,11 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
+      {/* CTA Section */}
+          <div className="footer-cta">
+            <h3>Ready to work with us?</h3>
+            <Link to="/contact" className="btn">Get In Touch</Link>
+          </div>
       {/* Wave Section */}
       <div className="wave-section">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -82,12 +87,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </div>
-          
-          {/* CTA Section */}
-          <div className="footer-cta">
-            <h3>Ready to work with us?</h3>
-            <Link to="/contact" className="btn">Get In Touch</Link>
           </div>
         </div>
       </div>
