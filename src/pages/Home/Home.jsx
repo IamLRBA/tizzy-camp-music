@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaPlay, FaArrowRight, FaSpotify, FaApple, FaYoutube, FaDeezer } from 'react-icons/fa';
 import { SiTidal } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,6 +9,15 @@ import './Home.css';
 
 const Home = () => {
   const [expandedRelease, setExpandedRelease] = useState(null);
+  const [clicked, setClicked] = useState(false);
+  const navigate = useNavigate();
+
+  const handleImageClick = () => {
+    setClicked(true);
+    setTimeout(() => {
+      navigate('/artists');
+    }, 400); // match duration of clickPop animation
+  };
 
   const latestReleases = [
     {
@@ -60,10 +69,6 @@ const Home = () => {
       }
     }
   ];
-
-  const handleCardClick = (id) => {
-    setExpandedRelease(expandedRelease === id ? null : id);
-  };
 
   const artists = [
     {
@@ -130,6 +135,10 @@ const Home = () => {
     }
   ];
 
+  const handleCardClick = (id) => {
+    setExpandedRelease(expandedRelease === id ? null : id);
+  };
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -151,8 +160,8 @@ const Home = () => {
       <section className="home-section releases-section">
         <div className="container">
           <h2 className="home-section-title">
-  Latest <span className="highlighted-border">Releases</span>
-</h2>
+            Latest <span className="highlighted-border">Releases</span>
+          </h2>
           <div className="home-releases-grid">
             {latestReleases.map((release) => (
               <motion.div
@@ -167,17 +176,14 @@ const Home = () => {
                   backgroundPosition: 'center'
                 }}
               >
-                {/* Artist Image Circle */}
                 <div className="home-artist-image-circle">
                   <img src={release.artistImage} alt={release.artist} />
                 </div>
 
-                {/* Play Button */}
                 <button className="home-play-button">
                   <FaPlay />
                 </button>
-                
-                {/* Release Info */}
+
                 <div className="home-release-info-overlay">
                   <div className="home-release-info">
                     <h3>{release.title}</h3>
@@ -185,8 +191,7 @@ const Home = () => {
                     <span>{new Date(release.date).toLocaleDateString()}</span>
                   </div>
                 </div>
-                
-                {/* Expanded Content */}
+
                 <AnimatePresence>
                   {expandedRelease === release.id && (
                     <motion.div
@@ -222,7 +227,7 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-          
+
           <div className="section-footer slide-in-bottom delay-2">
             <Link to="/releases" className="btn">
               View All Releases <FaArrowRight />
@@ -232,18 +237,32 @@ const Home = () => {
       </section>
 
       {/* Artists Section */}
-      <section className="section artists-section">
+      <section className="section artists-section highlight-bg">
         <div className="container">
-          <h2 className="section-title">Our Artists</h2>
-          <div className="artists-grid">
-            {artists.map((artist) => (
-              <ArtistCard key={artist.id} artist={artist} />
-            ))}
-          </div>
-          <div className="section-footer slide-in-bottom delay-2">
-            <Link to="/artists" className="btn">
-              Meet All Artists <FaArrowRight />
-            </Link>
+          <h2 className="animated-float-title">
+            <span className="float-word highlight-border">Click</span>
+            <span className="float-word">the</span>
+            <span className="float-word">Ball</span>
+            <span className="float-word">Below</span>
+            <span className="float-word highlight-border">To</span>
+            <span className="float-word">Meet</span>
+            <span className="float-word">Our</span>
+            <span className="float-word highlight-border">Artists</span>
+          </h2>
+
+          <div className="pointer-illustration fade-in-up">
+            <div
+              onClick={handleImageClick}
+              aria-label="Go to Artists Page"
+              className="pointer-link"
+              style={{ cursor: 'pointer' }}
+            >
+              <img
+                src="/images/pointing-down3.png"
+                alt="Pointing down"
+                className={`pointer-img bounce ${clicked ? 'clicked' : ''}`}
+              />
+            </div>
           </div>
         </div>
       </section>

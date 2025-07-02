@@ -13,7 +13,7 @@ const ArtistProfile = () => {
       name: 'Artist 1',
       genre: 'Hip Hop',
       bio: 'Artist 1 is a groundbreaking hip hop artist known for their unique flow and thought-provoking lyrics. Emerging from the streets of Kampala, they bring a fresh perspective to the African hip hop scene.',
-      image: '/images/artists/artist1/profile.jpg',
+      image: '/images/artists/artist1/profile1.jpg',
       featuredSong: {
         title: 'Latest Hit Single',
         audio: '/audio/artist1-hit.mp3',
@@ -36,11 +36,11 @@ const ArtistProfile = () => {
       name: 'Artist 2',
       genre: 'R&B',
       bio: 'With a voice like silk, Artist 2 has been captivating audiences with their smooth R&B vocals and heartfelt lyrics. Their music blends contemporary R&B with traditional African influences.',
-      image: '/images/artists/artist2/profile.jpg',
+      image: '/images/artists/artist2/profile2.jpg',
       featuredSong: {
         title: 'Latest Hit Single',
         audio: '/audio/artist2-hit.mp3',
-        cover: '/images/artists/artist2/album1.jpg'
+        cover: '/images/artists/artist2/album2.jpg'
       },
       social: {
         instagram: '#',
@@ -59,11 +59,11 @@ const ArtistProfile = () => {
       name: 'Artist 3',
       genre: 'Afrobeat',
       bio: 'Artist 3 brings the heat with infectious Afrobeat rhythms that get everyone moving. Their high-energy performances and catchy hooks have made them a festival favorite across East Africa.',
-      image: '/images/artists/artist3/profile.jpg',
+      image: '/images/artists/artist3/profile3.jpg',
       featuredSong: {
         title: 'Latest Hit Single',
         audio: '/audio/artist3-hit.mp3',
-        cover: '/images/artists/artist3/album1.jpg'
+        cover: '/images/artists/artist3/album3.jpg'
       },
       social: {
         instagram: '#',
@@ -82,11 +82,11 @@ const ArtistProfile = () => {
       name: 'Artist 4',
       genre: 'Pop',
       bio: 'Artist 4 is the pop sensation taking the airwaves by storm. With chart-topping hits and a charismatic stage presence, they represent the new wave of African pop music.',
-      image: '/images/artists/artist4/profile.jpg',
+      image: '/images/artists/artist4/profile4.jpg',
       featuredSong: {
         title: 'Latest Hit Single',
         audio: '/audio/artist4-hit.mp3',
-        cover: '/images/artists/artist4/album1.jpg'
+        cover: '/images/artists/artist4/album4.jpg'
       },
       social: {
         instagram: '#',

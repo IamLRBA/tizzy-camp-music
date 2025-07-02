@@ -9,25 +9,25 @@ const Artists = () => {
     {
       id: 1,
       name: 'Artist 1',
-      image: '/images/artists/artist1/profile.jpg',
+      image: '/images/artists/artist1/profile1.jpg',
       genre: 'Hip Hop'
     },
     {
       id: 2,
       name: 'Artist 2',
-      image: '/images/artists/artist2/profile.jpg',
+      image: '/images/artists/artist2/profile2.jpg',
       genre: 'R&B'
     },
     {
       id: 3,
       name: 'Artist 3',
-      image: '/images/artists/artist3/profile.jpg',
+      image: '/images/artists/artist3/profile3.jpg',
       genre: 'Afrobeat'
     },
     {
       id: 4,
       name: 'Artist 4',
-      image: '/images/artists/artist4/profile.jpg',
+      image: '/images/artists/artist4/profile4.jpg',
       genre: 'Pop'
     }
   ];
