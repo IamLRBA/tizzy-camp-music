@@ -270,7 +270,7 @@ const Home = () => {
       {/* Testimonials Section */}
       <section className="section testimonials-section">
         <div className="container">
-          <h2 className="section-title">What Our Clients Say</h2>
+          <h2 className="section-title">Client Testimonials</h2>
           <div className="testimonials-slider">
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.id} testimonial={testimonial} />
