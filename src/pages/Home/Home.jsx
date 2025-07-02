@@ -1,30 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPlay, FaArrowRight } from 'react-icons/fa';
+import { FaPlay, FaArrowRight, FaSpotify, FaApple, FaYoutube, FaDeezer } from 'react-icons/fa';
+import { SiTidal } from 'react-icons/si';
+import { motion, AnimatePresence } from 'framer-motion';
 import ArtistCard from '../../components/ArtistCard';
 import TestimonialCard from '../../components/TestimonialCard';
 import './Home.css';
 
 const Home = () => {
-  // Sample data - replace with your actual data
+  const [expandedRelease, setExpandedRelease] = useState(null);
+
   const latestReleases = [
     {
       id: 1,
       title: 'New Single',
       artist: 'Artist 1',
       cover: '/images/artists/artist1/album1.jpg',
+      artistImage: '/images/artists/artist1/profile1.jpg',
       date: '2023-06-15',
-      link: '#'
+      description: 'This is the latest single from Artist 1, showcasing their unique sound and style. The track blends modern production with classic influences.',
+      links: {
+        spotify: 'https://spotify.com',
+        apple: 'https://apple.com',
+        youtube: 'https://youtube.com',
+        deezer: 'https://deezer.com',
+        tidal: 'https://tidal.com'
+      }
     },
     {
       id: 2,
-      title: 'Latest Album',
+      title: 'New EP',
       artist: 'Artist 2',
-      cover: '/images/artists/artist2/album1.jpg',
+      cover: '/images/artists/artist2/album2.jpg',
+      artistImage: '/images/artists/artist2/profile2.jpg',
+      date: '2023-06-15',
+      description: 'This is the latest single from Artist 1, showcasing their unique sound and style. The track blends modern production with classic influences.',
+      links: {
+        spotify: 'https://spotify.com',
+        apple: 'https://apple.com',
+        youtube: 'https://youtube.com',
+        deezer: 'https://deezer.com',
+        tidal: 'https://tidal.com'
+      }
+    },
+    {
+      id: 3,
+      title: 'Latest Album',
+      artist: 'Artist 3',
+      cover: '/images/artists/artist3/album3.jpg',
+      artistImage: '/images/artists/artist3/profile3.jpg',
       date: '2023-05-20',
-      link: '#'
+      description: 'The highly anticipated album from Artist 2 features collaborations with top producers and showcases their artistic evolution.',
+      links: {
+        spotify: 'https://spotify.com',
+        apple: 'https://apple.com',
+        youtube: 'https://youtube.com',
+        deezer: 'https://deezer.com',
+        tidal: 'https://tidal.com'
+      }
     }
   ];
+
+  const handleCardClick = (id) => {
+    setExpandedRelease(expandedRelease === id ? null : id);
+  };
 
   const artists = [
     {
@@ -70,9 +109,23 @@ const Home = () => {
     },
     {
       id: 3,
-      name: 'Client 3',
+      name: 'Rebo Chapo',
       role: 'Artist',
       image: '/images/testimonials/client3.jpg',
+      text: 'Tizzy Camp helped me take my music to the next level. Highly recommend their services.'
+    },
+    {
+      id: 4,
+      name: 'Kim Swaqq',
+      role: 'Artist',
+      image: '/images/testimonials/client4.jpg',
+      text: 'Tizzy Camp helped me take my music to the next level. Highly recommend their services.'
+    },
+    {
+      id: 5,
+      name: 'Quex',
+      role: 'Artist',
+      image: '/images/testimonials/client5.jpg',
       text: 'Tizzy Camp helped me take my music to the next level. Highly recommend their services.'
     }
   ];
@@ -90,31 +143,86 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-image slide-in-right">
-          <img src="/images/hero-bg.jpg" alt="Tizzy Camp Collective" />
+          <img src="/images/hero-bg1.jpg" alt="Tizzy Camp Collective" />
         </div>
       </section>
 
       {/* Latest Releases */}
-      <section className="section releases-section">
+      <section className="home-section releases-section">
         <div className="container">
-          <h2 className="section-title">Latest Releases</h2>
-          <div className="releases-grid">
+          <h2 className="home-section-title">
+  Latest <span className="highlighted-border">Releases</span>
+</h2>
+          <div className="home-releases-grid">
             {latestReleases.map((release) => (
-              <div key={release.id} className="release-card slide-in-bottom">
-                <div className="release-image">
-                  <img src={release.cover} alt={release.title} />
-                  <button className="play-button">
-                    <FaPlay />
-                  </button>
+              <motion.div
+                key={release.id}
+                layout
+                className={`home-release-card ${expandedRelease === release.id ? 'expanded' : ''}`}
+                onClick={() => handleCardClick(release.id)}
+                initial={{ borderRadius: 16 }}
+                style={{ 
+                  backgroundImage: `url(${release.cover})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                {/* Artist Image Circle */}
+                <div className="home-artist-image-circle">
+                  <img src={release.artistImage} alt={release.artist} />
                 </div>
-                <div className="release-info">
-                  <h3>{release.title}</h3>
-                  <p>{release.artist}</p>
-                  <span>{new Date(release.date).toLocaleDateString()}</span>
+
+                {/* Play Button */}
+                <button className="home-play-button">
+                  <FaPlay />
+                </button>
+                
+                {/* Release Info */}
+                <div className="home-release-info-overlay">
+                  <div className="home-release-info">
+                    <h3>{release.title}</h3>
+                    <p>{release.artist}</p>
+                    <span>{new Date(release.date).toLocaleDateString()}</span>
+                  </div>
                 </div>
-              </div>
+                
+                {/* Expanded Content */}
+                <AnimatePresence>
+                  {expandedRelease === release.id && (
+                    <motion.div
+                      className="home-release-expanded"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="home-release-description">
+                        <p>{release.description}</p>
+                      </div>
+                      <div className="home-release-links">
+                        <a href={release.links.spotify} target="_blank" rel="noopener noreferrer" aria-label="Spotify" data-tooltip="Listen on Spotify">
+                          <FaSpotify />
+                        </a>
+                        <a href={release.links.apple} target="_blank" rel="noopener noreferrer" aria-label="Apple Music" data-tooltip="Listen on Apple Music">
+                          <FaApple />
+                        </a>
+                        <a href={release.links.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-tooltip="Watch on YouTube">
+                          <FaYoutube />
+                        </a>
+                        <a href={release.links.deezer} target="_blank" rel="noopener noreferrer" aria-label="Deezer" data-tooltip="Listen on Deezer">
+                          <FaDeezer />
+                        </a>
+                        <a href={release.links.tidal} target="_blank" rel="noopener noreferrer" aria-label="Tidal" data-tooltip="Listen on Tidal">
+                          <SiTidal />
+                        </a>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
           </div>
+          
           <div className="section-footer slide-in-bottom delay-2">
             <Link to="/releases" className="btn">
               View All Releases <FaArrowRight />
@@ -143,7 +251,7 @@ const Home = () => {
       {/* Testimonials Section */}
       <section className="section testimonials-section">
         <div className="container">
-          <h2 className="section-title">What People Say</h2>
+          <h2 className="section-title">What Our Clients Say</h2>
           <div className="testimonials-slider">
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.id} testimonial={testimonial} />
