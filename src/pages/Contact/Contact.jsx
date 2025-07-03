@@ -1,14 +1,21 @@
-import React from 'react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
+import { ImSpinner8 } from 'react-icons/im';
+import { IoCheckmarkDone } from 'react-icons/io5';
+import emailjs from 'emailjs-com';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,19 +27,48 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+    setIsLoading(true);
+    setError(null);
+
+    emailjs.send(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      formData,
+      process.env.REACT_APP_EMAILJS_USER_ID
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      setIsSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      setTimeout(() => setIsSuccess(false), 5000);
+    })
+    .catch((err) => {
+      console.error('FAILED...', err);
+      setError('Failed to send message. Please try again later.');
+    })
+    .finally(() => {
+      setIsLoading(false);
     });
   };
 
   return (
     <div className="contact-page">
+      {/* Success Modal */}
+      {isSuccess && (
+        <div className="success-modal">
+          <div className="success-content">
+            <IoCheckmarkDone className="success-icon" />
+            <h3>Message Sent Successfully!</h3>
+            <p>We'll get back to you soon. Thank you for reaching out.</p>
+          </div>
+        </div>
+      )}
+
       {/* Map Section */}
       <section className="map-section">
         <iframe 
@@ -50,34 +86,46 @@ const Contact = () => {
       <section className="section contact-info-section">
         <div className="container">
           <h2 className="section-title">Get In Touch</h2>
+          <p className="section-subtitle">We'd love to hear from you. Reach out through any of these channels.</p>
+          
           <div className="contact-info-grid">
-            <div className="contact-info-card slide-in-left">
+            <div className="contact-info-card">
               <div className="contact-info-icon">
                 <FaMapMarkerAlt />
               </div>
               <h3>Location</h3>
               <p>75a Better View Rd, Kampala, Uganda</p>
             </div>
-            <div className="contact-info-card slide-in-bottom">
+            
+            <div className="contact-info-card">
               <div className="contact-info-icon">
                 <FaPhone />
               </div>
               <h3>Phone</h3>
               <p>+256 760 316 738</p>
             </div>
-            <div className="contact-info-card slide-in-bottom delay-1">
+            
+            <div className="contact-info-card">
               <div className="contact-info-icon">
                 <FaEnvelope />
               </div>
               <h3>Email</h3>
               <p>info@tizzycamp.com</p>
             </div>
-            <div className="contact-info-card slide-in-right">
-              <div className="contact-info-icon">
-                <FaWhatsapp />
-              </div>
-              <h3>WhatsApp</h3>
-              <p>+256 760 316 738</p>
+            
+            <div className="contact-info-card whatsapp-card">
+              <a 
+                href="https://wa.me/256760316738" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="whatsapp-link"
+              >
+                <div className="contact-info-icon whatsapp-icon">
+                  <FaWhatsapp />
+                </div>
+                <h3>WhatsApp</h3>
+                <p>+256 760 316 738</p>
+              </a>
             </div>
           </div>
         </div>
@@ -87,11 +135,14 @@ const Contact = () => {
       <section className="section contact-form-section">
         <div className="container">
           <div className="contact-form-container">
-            <div className="contact-form-image slide-in-left">
+            <div className="contact-form-image">
               <img src="/images/contact-image.jpg" alt="Contact Us" />
             </div>
-            <form onSubmit={handleSubmit} className="contact-form slide-in-right">
+            
+            <form onSubmit={handleSubmit} className="contact-form">
               <h2 className="section-title">Send Us a Message</h2>
+              <p className="form-subtitle">Fill out the form below and we'll respond as soon as possible.</p>
+              
               <div className="form-group">
                 <input 
                   type="text" 
@@ -102,6 +153,7 @@ const Contact = () => {
                   required
                 />
               </div>
+              
               <div className="form-group">
                 <input 
                   type="email" 
@@ -112,6 +164,7 @@ const Contact = () => {
                   required
                 />
               </div>
+              
               <div className="form-group">
                 <input 
                   type="text" 
@@ -122,6 +175,7 @@ const Contact = () => {
                   required
                 />
               </div>
+              
               <div className="form-group">
                 <textarea 
                   name="message" 
@@ -132,8 +186,19 @@ const Contact = () => {
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="btn">
-                Send Message <FaPaperPlane />
+              
+              {error && <p className="error-message">{error}</p>}
+              
+              <button type="submit" className="btn" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <ImSpinner8 className="spinner" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message <FaPaperPlane />
+                  </>
+                )}
               </button>
             </form>
           </div>
