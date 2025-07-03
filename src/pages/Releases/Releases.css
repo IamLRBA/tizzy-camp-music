@@ -52,11 +52,11 @@
   position: relative;
 }
 
-.section-title {
+.releases-section-title {
   font-size: 3.5rem;
   font-weight: 800;
   color: transparent;
-  background: linear-gradient(90deg, var(--secondary-color), #ff6b6b);
+  background: linear-gradient(90deg, var(--secondary-color), #640000);
   -webkit-background-clip: text;
   background-clip: text;
   display: inline-block;
