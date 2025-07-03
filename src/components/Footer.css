@@ -30,7 +30,7 @@
   padding: var(--spacing-xl) 0;
   position: relative;
   z-index: 2;
-  background-color: rgba(179, 0, 0, 0.9);
+  background-color: rgba(255, 0, 0, 0.537);
 }
 
 .cta-content {
@@ -56,13 +56,13 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: var(--transition-medium);
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.893);
 }
 
 .footer-cta .btn:hover {
   background-color: transparent;
   border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  color: var(--white);
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
@@ -132,16 +132,16 @@
   margin-bottom: var(--spacing-md);
 }
 
-.section-title {
-  color: var(--white);
-  font-size: 1rem;
-  margin-bottom: var(--spacing-lg);
+.footer-section-title {
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+  margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-sm);
   position: relative;
   display: inline-block;
 }
 
-.section-title::after {
+.footer-section-title::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -202,9 +202,9 @@
 }
 
 .social-media h4 {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   margin-bottom: var(--spacing-sm);
-  color: var(--white);
+  color: var(--secondary-color);
 }
 
 .social-icons {
@@ -242,9 +242,9 @@
 }
 
 .platform-links h4 {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   margin-bottom: var(--spacing-sm);
-  color: var(--white);
+  color: var(--secondary-color);
 }
 
 .platform-icons {
