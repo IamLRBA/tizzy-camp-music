@@ -4,7 +4,7 @@
 
 .studio-hero-section {
   height: 60vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/studio/studio1.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -72,11 +72,44 @@
 }
 
 .studio-cta-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/studio/studio2.jpg');
-  background-size: cover;
-  background-position: center;
+  position: relative;
   color: var(--white);
   text-align: center;
+  overflow: hidden;
+}
+
+.studio-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.79), rgba(0, 0, 0, 0.795)), url('/images/studio-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: subtleMove 20s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes subtleMove {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: blur(1px);
+  }
+  50% {
+    transform: scale(1.05) translate(2%, 1%);
+    filter: blur(3px);
+  }
+  100% {
+    transform: scale(1.03) translate(-1%, -1%);
+    filter: blur(1px);
+  }
+}
+
+.studio-cta-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .studio-cta-content {

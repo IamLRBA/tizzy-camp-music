@@ -58,7 +58,7 @@ const Studio = () => {
         <div className="container">
           <div className="studio-cta-content">
             <h2 className="section-title">Ready to Create?</h2>
-            <p>Book your session at G.O.E Records today and bring your musical vision to life</p>
+            <p>Book your session at G.O.E Records today and bring your musical vision to life!</p>
             <Link to="/studio/booking" className="btn">Book Now</Link>
           </div>
         </div>
