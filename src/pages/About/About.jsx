@@ -147,6 +147,22 @@ const About = () => {
 
   return (
     <div className="about-page">
+      {/* Floating background elements */}
+      {floatingElements.map((element) => (
+        <div 
+          key={element.id}
+          className={`about-floating-element about-floating-${element.type}`}
+          style={{
+            left: `${element.left}%`,
+            width: `${element.size}px`,
+            height: `${element.size}px`,
+            animationDuration: `${element.animationDuration}s`,
+            animationDelay: `${element.animationDelay}s`,
+            opacity: element.opacity
+          }}
+        />
+      ))}
+      
       {/* Hero Section */}
       <section className="about-hero-section">
         <div className="about-hero-overlay"></div>

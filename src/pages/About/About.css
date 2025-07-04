@@ -1,3 +1,35 @@
+/* Floating Elements */
+.about-floating-element {
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  animation: aboutFloat linear infinite;
+}
+
+.about-floating-note {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512' fill='%23b30000'%3E%3Cpath d='M310.94 1.33l-96.53 28.51A32 32 0 0 0 192 60.34V360a148.76 148.76 0 0 0-48-8c-61.86 0-112 35.82-112 80s50.14 80 112 80 112-35.82 112-80V148.15l73-21.39a32 32 0 0 0 23-30.71V32a32 32 0 0 0-41.06-30.67z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 5px rgba(179, 0, 0, 0.5));
+}
+
+.about-floating-bubble {
+  background: rgba(179, 0, 0, 0.2);
+  border-radius: 50%;
+  border: 1px solid rgba(179, 0, 0, 0.3);
+}
+
+@keyframes aboutFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    top: -10%;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    top: 110%;
+  }
+}
+
 /* About Page Styles */
 .about-page {
   position: relative;
@@ -16,6 +48,7 @@
   background: url('/images/hero-bg1.jpg') center/cover no-repeat;
   filter: blur(8px) brightness(0.4);
   z-index: -2;
+  animation: aboutBackgroundPan 120s linear infinite;
 }
 
 /* Hero Section */
@@ -357,6 +390,24 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes aboutBackgroundPan {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
   }
 }
 
