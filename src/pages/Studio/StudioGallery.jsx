@@ -5,7 +5,6 @@ import './StudioGallery.css';
 const StudioGallery = () => {
   const [activeTab, setActiveTab] = useState('photos');
 
-  // Sample data - replace with your actual media
   const photos = [
     { id: 1, src: '/images/studio/gallery1.jpg', alt: 'Studio Control Room' },
     { id: 2, src: '/images/studio/gallery2.jpg', alt: 'Live Room' },
@@ -25,8 +24,8 @@ const StudioGallery = () => {
     <div className="studio-gallery-page">
       <section className="section gallery-section">
         <div className="container">
-          <h2 className="section-title">Studio Gallery</h2>
-          <p className="section-subtitle">
+          <h2 className="studio-section-title">Studio Gallery</h2>
+          <p className="studio-section-subtitle">
             Take a look inside G.O.E Records, our state-of-the-art recording facility
           </p>
           
@@ -67,7 +66,7 @@ const StudioGallery = () => {
                 <div key={video.id} className="video-card">
                   <div className="video-thumbnail">
                     <img src={video.thumbnail} alt={video.title} />
-                    <button className="play-button">
+                    <button className="video-play-button">
                       <FaPlay />
                     </button>
                   </div>
