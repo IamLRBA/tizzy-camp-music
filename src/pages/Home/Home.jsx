@@ -258,7 +258,7 @@ const Home = () => {
               style={{ cursor: 'pointer' }}
             >
               <img
-                src="/images/pointing-down3.png"
+                src="/images/pointing-down3.jpg"
                 alt="Pointing down"
                 className={`pointer-img bounce ${clicked ? 'clicked' : ''}`}
               />
