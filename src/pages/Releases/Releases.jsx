@@ -205,7 +205,7 @@ const Releases = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="section-title">Discography</h2>
+            <h2 className="releases-section-title">Discography</h2>
             <div className="animated-wave"></div>
           </motion.div>
           
