@@ -12,6 +12,24 @@ const Home = () => {
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
 
+  // Floating elements state
+  const [floatingElements] = useState(() => {
+    const elements = [];
+    const types = ['note', 'note', 'note', 'bubble', 'bubble'];
+    for (let i = 0; i < 12; i++) {
+      elements.push({
+        id: i,
+        type: types[Math.floor(Math.random() * types.length)],
+        size: Math.random() * 20 + 10,
+        left: Math.random() * 100,
+        animationDuration: Math.random() * 30 + 20,
+        animationDelay: Math.random() * 10,
+        opacity: Math.random() * 0.7 + 0.3
+      });
+    }
+    return elements;
+  });
+
   const handleImageClick = () => {
     setClicked(true);
     setTimeout(() => {
@@ -141,6 +159,22 @@ const Home = () => {
 
   return (
     <div className="home-page">
+      {/* Floating background elements */}
+      {floatingElements.map((element) => (
+        <div 
+          key={element.id}
+          className={`home-floating-element home-floating-${element.type}`}
+          style={{
+            left: `${element.left}%`,
+            width: `${element.size}px`,
+            height: `${element.size}px`,
+            animationDuration: `${element.animationDuration}s`,
+            animationDelay: `${element.animationDelay}s`,
+            opacity: element.opacity
+          }}
+        />
+      ))}
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
