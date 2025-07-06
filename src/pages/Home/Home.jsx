@@ -317,7 +317,7 @@ const Home = () => {
       <section className="section studio-cta-section">
         <div className="container">
           <div className="studio-cta-content">
-            <h2 className="section-title">Ready to Create Something Amazing?</h2>
+            <h2 className="home-section-title">Ready to Create Something Amazing?</h2>
             <p>Book time at G.O.E Records, our state-of-the-art recording studio!</p>
             <Link to="/studio/booking" className="btn">Book Studio Time</Link>
           </div>
