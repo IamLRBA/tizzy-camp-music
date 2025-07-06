@@ -466,7 +466,7 @@ const ArtistProfile = () => {
             ))}
           </div>
           <button className="stream-note" onClick={scrollToPlatforms}>
-            Click to here to discover more music from {artist.name}
+            Click here to discover more music from {artist.name}
             <FaArrowDown className="arrow-down" />
           </button>
         </div>
