@@ -8,7 +8,7 @@ const Terms = () => {
         <div className="container">
           <h1 className="page-title">Terms of Service</h1>
           <div className="terms-content">
-            <p>Last updated: June 30, 2023</p>
+            <p>Last updated: June 30, 2025</p>
             
             <h2>1. Terms</h2>
             <p>
