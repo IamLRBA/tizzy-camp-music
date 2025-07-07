@@ -82,7 +82,7 @@ const Studio = () => {
               <div className="studio-service-icon">
                 <FaMicrophone />
               </div>
-              <h3>Recording</h3>
+              <h3>Audio Sevices</h3>
               <p>Professional recording sessions with our expert engineers</p>
             </Link>
             <Link to="/studio/beat-store" className="studio-service-card">
@@ -92,19 +92,19 @@ const Studio = () => {
               <h3>Beat Store</h3>
               <p>Purchase high-quality beats from our producers</p>
             </Link>
+            <Link to="/studio/booking" className="studio-service-card">
+              <div className="studio-service-icon">
+                <FaCalendarAlt />
+              </div>
+              <h3>Studio Booking</h3>
+              <p>Reserve your time in our professional recording space</p>
+            </Link>
             <Link to="/studio/gallery" className="studio-service-card">
               <div className="studio-service-icon">
                 <FaImages />
               </div>
               <h3>Studio Gallery</h3>
               <p>Take a virtual tour of our facilities</p>
-            </Link>
-            <Link to="/studio/booking" className="studio-service-card">
-              <div className="studio-service-icon">
-                <FaCalendarAlt />
-              </div>
-              <h3>Book Studio</h3>
-              <p>Reserve your time in our professional recording space</p>
             </Link>
           </div>
         </div>
