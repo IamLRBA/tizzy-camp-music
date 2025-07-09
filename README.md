@@ -1,5 +1,7 @@
 # Tizzy Camp Music Label & G.O.E Records
 
+![Tizzy Camp Background](./public/images/Tizzy-Camp-bg.PNG)
+
 ---
 
 # Project Description
