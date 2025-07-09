@@ -4,7 +4,7 @@ import ArtistCard from '../../components/ArtistCard';
 import './Artists.css';
 
 const Artists = () => {
-  // Sample data - replace with your actual data
+  // Sample data 
   const artists = [
     {
       id: 1,

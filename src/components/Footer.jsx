@@ -117,6 +117,7 @@ const Footer = () => {
         <p className="copyright">
           &copy; {new Date().getFullYear()} Tizzy Camp Music Label & G.O.E Records. All rights reserved.
         </p>
+        <p1 className="copyright">Designed by - LRBA</p1>
       </div>
     </footer>
   );
