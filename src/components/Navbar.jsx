@@ -1,47 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaHome, FaUsers, FaMusic, FaMicrophone, FaHeadphones, FaEnvelope, FaSearch, FaTimes, FaBars } from 'react-icons/fa';
+import { useSearch } from './SearchContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const { 
+    searchQuery, 
+    setSearchQuery, 
+    searchSuggestions, 
+    showSuggestions, 
+    setShowSuggestions,
+    updateSuggestions
+  } = useSearch();
   const location = useLocation();
+  const navigate = useNavigate();
+  const searchRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // Close suggestions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
     if (!searchOpen) {
       setSearchQuery('');
+      setShowSuggestions(false);
     }
   };
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
+    const value = e.target.value;
+    setSearchQuery(value);
+    updateSuggestions(value);
+    setShowSuggestions(!!value);
   };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // Implement search functionality
-    console.log('Searching for:', searchQuery);
-    setSearchOpen(false);
-    setSearchQuery('');
+    if (searchQuery.trim()) {
+      navigate('/search-results');
+      setShowSuggestions(false);
+    }
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const handleSuggestionClick = (path) => {
+    navigate(path);
+    setSearchOpen(false);
+    setSearchQuery('');
+    setShowSuggestions(false);
+  };
 
   const navLinks = [
     { path: '/', name: 'Home', icon: <FaHome /> },
@@ -74,16 +93,33 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="navbar-search-container">
+        <div className="navbar-search-container" ref={searchRef}>
           {searchOpen && (
             <form onSubmit={handleSearchSubmit} className="navbar-search-form">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={handleSearchChange}
-                className="navbar-search-input"
-              />
+              <div className="search-input-wrapper">
+                <input
+                  type="text"
+                  placeholder="Search artists, releases, studio..."
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  className="navbar-search-input"
+                  autoFocus
+                />
+                {showSuggestions && searchSuggestions.length > 0 && (
+                  <div className="search-suggestions">
+                    {searchSuggestions.map((item) => (
+                      <div 
+                        key={`${item.type}-${item.id}`}
+                        className="suggestion-item"
+                        onClick={() => handleSuggestionClick(item.path)}
+                      >
+                        <span className="suggestion-category">{item.category}</span>
+                        <span className="suggestion-title">{item.title}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
               <button type="submit" className="navbar-search-submit">
                 <FaSearch />
               </button>
