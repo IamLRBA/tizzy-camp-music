@@ -16,6 +16,7 @@ function App() {
         <AppRoutes />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   )
 }
