@@ -185,7 +185,7 @@ const About = () => {
             <div className="about-history-text about-slide-in-left">
               <h3>The Beginning</h3>
               <p>
-                Tizzy Camp Music Label was founded in 2015 with a simple vision: to create a home for talented artists 
+                Tizzy Camp Music Label was founded in 2012 with a simple vision: to create a home for talented artists 
                 where they could develop their craft and share their music with the world. What started as a small 
                 collective of passionate musicians has grown into a full-fledged label and recording studio.
               </p>
