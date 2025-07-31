@@ -8,9 +8,9 @@ const Artists = () => {
   const artists = [
     {
       id: 1,
-      name: 'Artist 1',
+      name: 'Anzoa',
       image: '/images/artists/artist1/profile1.jpg',
-      genre: 'Hip Hop',
+      genre: 'Afrobeat',
       spotify: '#',
       instagram: '#'
     },

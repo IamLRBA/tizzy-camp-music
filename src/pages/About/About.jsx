@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  FaFacebook, FaTwitter, FaInstagram, FaLinkedin, 
+  FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaTiktok,
   FaCrown, FaHeadphones, FaChartLine, FaMusic, FaMicrophone 
 } from 'react-icons/fa';
 import CountUp from 'react-countup';
@@ -54,10 +54,12 @@ const About = () => {
       image: '/images/team/ceo.jpg',
       extendedBio: 'With a background in artist development and business strategy, our CEO has guided Tizzy Camp from a small startup to a respected name in the industry. Their passion for discovering new talent and innovative approach to music business has been instrumental in our success.',
       social: {
-        facebook: '#',
-        twitter: '#',
-        instagram: '#',
-        linkedin: '#'
+        facebook: 'https://www.facebook.com/FananNgalaLagendary ',
+        tiktok: 'https://www.tiktok.com/@fanan_ngala?lang=en ',
+        instagram: 'https://www.instagram.com/fanan_ngala/',
+        threads: 'https://www.threads.com/@fanan_ngala',
+        email: 'ngalamusiq2019@gmail.com'
+
       }
     },
     {
