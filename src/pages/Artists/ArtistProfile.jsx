@@ -17,9 +17,9 @@ const ArtistProfile = () => {
   // Sample data for all 6 artists
   const artists = {
     1: {
-      name: 'Artist 1',
-      genre: 'Hip Hop',
-      bio: 'Artist 1 is a groundbreaking hip hop artist known for their unique flow and thought-provoking lyrics. Emerging from the streets of Kampala, they bring a fresh perspective to the African hip hop scene.',
+      name: 'Anzoa',
+      genre: 'Afrobeat',
+      bio: 'Born on February 28, 2002, Anzoa weaves the heartbeat of South Sudan into every note, blending Afro soul, Afro swing, and Afropop with the raw beauty of Arabi Juba and English. Her music tells stories of love, resilience, and identity, flowing with melodies that echo both the struggle and the spirit of her Madi people. Discovered and recommended to Fanan Ngala by a trusted colleague, Anzoa officially signed with Tizzy Camp Music on May 7, 2025. This pivotal moment marked the beginning of a journey poised to redefine the soundscape. Through every song, Anzoa lets rhythm speak where words fall short – soulful, bold, unforgettable. Dive into her world and experience the undeniable power of a voice destined to move souls.',
       profileImage: '/images/artists/artist1/profile1.jpg',
       coverImage: '/images/artists/artist1/cover1.jpg',
       gallery: [
