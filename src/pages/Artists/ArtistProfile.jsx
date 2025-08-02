@@ -53,8 +53,8 @@ const ArtistProfile = () => {
       }
     },
     2: {
-      name: 'Artist 2',
-      genre: 'R&B',
+      name: 'Pere Alo',
+      genre: 'Afropop',
       bio: 'With a voice like silk, Artist 2 has been captivating audiences with their smooth R&B vocals and heartfelt lyrics. Their music blends contemporary R&B with traditional African influences.',
       profileImage: '/images/artists/artist2/profile2.jpg',
       coverImage: '/images/artists/artist2/cover2.jpg',
@@ -89,7 +89,7 @@ const ArtistProfile = () => {
       }
     },
     3: {
-      name: 'Artist 3',
+      name: 'Ejay ShutdownBwoy',
       genre: 'Afrobeat',
       bio: 'Artist 3 brings the heat with infectious Afrobeat rhythms that get everyone moving. Their high-energy performances and catchy hooks have made them a festival favorite across East Africa.',
       profileImage: '/images/artists/artist3/profile3.jpg',
