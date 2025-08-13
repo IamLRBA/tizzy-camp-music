@@ -6,7 +6,7 @@
 
 # Project Description
 
-This Tizzy Camp Music Label & G.O.E Records project is a professional comprehensive website - designed by LRBA, showcasing a collective of talented artists and a state-of-the-art recording studio. The platform serves as a digital hub for the music label, featuring artist profiles, music releases, company details and the  Studio sector.
+This Tizzy Camp Music Label & G.O.E Records project is a comprehensive website - designed by LRBA, showcasing a collective of talented artists and a state-of-the-art recording studio. The platform serves as a digital hub for the music label, featuring artist profiles, music releases, company details and the  Studio sector.
 
 Built as a modern single-page application using React, the website offers smooth navigation and responsive design to accommodate visitors across all device types. Key features include artist profiles with discographies, a beat store, studio gallery, booking system, and informational pages about the label.
 
